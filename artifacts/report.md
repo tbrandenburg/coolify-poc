@@ -1,0 +1,21 @@
+# Coolify Autonomous Smoke-Test Report
+
+Run ID: 1789495134-24530
+Repo: https://github.com/tbrandenburg/coolify-agent-smoke-1789495134-24530
+Coolify: http://localhost:8001 (application mqexnofkiuke3n0xph3rdpog)
+
+**Result: 9/9 tests passed**
+
+| Test | Status | Details |
+|---|---|---|
+| baseline | ✅ PASS | {"deployment_uuid":"gahxtgo745sutbdf2vodqwe5","coolify_status":"finished","http_status":"200","version":"v1"} |
+| broken-build | ✅ PASS | {"deployment_uuid":"tlle2u4mevvsbnwbjr8ybqah","coolify_status":"failed","git_commit":"31e4df980118a11a156556b4ef1798ee385dd155","http_status":"200","serving_version":"v2"} |
+| env-first | ✅ PASS | {"deployment_uuid":"sxghvusonajcuc6iwadbgxxa","coolify_status":"finished","expected_message":"hello-from-agent","actual_message":"hello-from-agent"} |
+| env-second | ✅ PASS | {"deployment_uuid":"qqr4gkd0ibeeyqkouim9jltb","coolify_status":"finished","expected_message":"updated-by-agent","actual_message":"updated-by-agent"} |
+| health-recovery | ✅ PASS | {"deployment_uuid":"tqcbntbnd97wctzkigsgfbap","coolify_status":"finished","health_http_status":"200"} |
+| pr-lifecycle | ✅ PASS | {"pr_number":"1","pr_url":"https://github.com/tbrandenburg/coolify-agent-smoke-1789495134-24530/pull/1","opened_state":"OPEN","closed_state":"CLOSED"} |
+| rollback | ✅ PASS | {"deployment_uuid":"fni0uhborz9buzy3kxua69sk","coolify_status":"finished","before_version":"v4","after_version":"v3","rollback_target_commit":"3000617440adb25b7583cecdd755d0618b9b7cea","git_head_after_rollback":"9f41c38ba2107aeb27e943a7bbac3a946ef59228","note":"git_head_after_rollback intentionally still equals v4 commit — rollback is a Coolify-side container swap, not a git revert"} |
+| unhealthy | ✅ PASS | {"deployment_uuid":"3tqacdgaquqxxfks2hkikypx","coolify_status":"failed","root_http_status":"200","health_http_status":"200","serving_message":"updated-by-agent","note":"Coolify auto-rolled back the unhealthy container; the previously-good container kept serving throughout"} |
+| update | ✅ PASS | {"deployment_uuid":"sehw6zgjrjbmc5ajkz4woe1p","coolify_status":"finished","git_commit":"4457f64ef3011ee13295be8dc076481b4fa5c36b","version":"v2"} |
+
+Raw evidence: `artifacts/deployments/*.json` (full Coolify deployment logs), `artifacts/http/*.json` (raw HTTP assertions).

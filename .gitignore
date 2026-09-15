@@ -1,0 +1,4 @@
+.agent/
+coolify/
+node_modules/
+*.log
